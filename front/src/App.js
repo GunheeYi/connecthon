@@ -24,9 +24,9 @@ function App() {
     <div className="app">
       <GlobalStyle />
       {user ? <Home user={user} /> : <Login />}
-      <EmptyRow />
-      {/* <Button>시작하기</Button>
-      <EntranceNum text={"4-2"} /> */}
+
+      <Button>시작하기</Button>
+      <EntranceNum text={"4-2"} />
     </div>
   );
 }
