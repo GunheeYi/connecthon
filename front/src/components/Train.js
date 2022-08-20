@@ -19,7 +19,6 @@ function Train(props) {
 			}}
 		>
 			<img src="/Group 35.png" alt="logo"></img>
-
 			<div
 				style={{
 					marginLeft: 16,
