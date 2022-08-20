@@ -1,6 +1,7 @@
 .my-page {
 	display: flex;
 	height: 100%;
+	width: 100%;
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
@@ -33,13 +34,30 @@
 	display: flex;
 	background-color: #00000000;
 	flex-direction: row;
-	margin-top: 10px;
+	margin-top: 180px;
 	text-align: center;
 	color: #b1b1b1;
 	border: 0;
 	outline: 0;
 	text-decoration-line: underline;
-	font-size: 15px;
+	font-size: 14px;
 	font-family: "Pretendard Bold";
 	cursor: pointer;
+}
+#my-page-seat {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Pretendard Bold";
+	width: 334px;
+	height: 30%;
+	border: 1px solid #e2e2e2;
+	border-radius: 12px;
+}
+#blank {
+	display: flex;
+	width: 334px;
+	flex-direction: row;
+	margin-top: 70px;
 }
