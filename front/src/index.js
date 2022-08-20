@@ -8,6 +8,7 @@ export { default as Home } from "./pages/Home";
 export { default as Login } from "./pages/Login";
 export { default as Mypage } from "./pages/Mypage";
 export { default as Navbar } from "./Navbar";
+export { default as Clock } from "./pages/Clock";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

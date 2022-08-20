@@ -13,7 +13,6 @@ import Navbar from "./Navbar";
 import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
-
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
@@ -36,8 +35,8 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/home" component={Home} />
-          <Route exact path="/sit" component={Sit} />
-          <Route exact path="/test" component={Test} />
+					<Route exact path="/sit" component={Sit} />
+					<Route exact path="/test" component={Test} />
 					<Route
 						exact
 						path="/mypage"
