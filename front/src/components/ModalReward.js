@@ -1,45 +1,28 @@
 import React from "react";
 import ReactModal from "react-modal";
 import palette from "../styles/pallete";
-import styled, { css } from "styled-components";
-
-const ExitBtn = styled.button`
-  width: 24px;
-  height: 24px;
-  background-color: ${palette.white};
-  font-family: "Pretendard Bold";
-  border: none;
-  font-size: 20px;
-
-  // 정렬
-  position: relative;
-  margin-left: auto;
-`;
+import styled from "styled-components";
+import Button from "./Button";
 
 const StyledTxt = styled.div`
-  background-color: white;
-  color: black;
   text-align: center;
-  font-family: "Pretendard Bold";
-
-  padding-top: 5px;
-
-  position: relative;
-  margin-left: auto;
-
-  align-items: center;
-  justify-content: center;
+  font-family: "Pretendard SemiBold";
+  font-size: "20px";
+  &.remain {
+    color: ${palette.main_purple};
+    font-size: 12px;
+  }
 `;
 
-const StyledDiv = styled.div`
-  width: 100%;
-  color: white;
-  font-family: "Pretendard Bold";
-  // 정렬
-  display: flex;
+const IllustDiv = styled.div`
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 150px;
+  width: 150px;
+  background-color: gray;
 `;
 
-const Modal = ({ isOpen, onCancel }) => {
+const ModalReward = ({ isOpen, onCancel }) => {
   const handleClickExit = () => {
     onCancel();
   };
@@ -59,7 +42,7 @@ const Modal = ({ isOpen, onCancel }) => {
           height: "768px",
           alignItems: "center",
           justifyContent: "center",
-          zIndex: 999
+          zIndex: 999,
         },
         content: {
           position: "absolute",
@@ -68,7 +51,7 @@ const Modal = ({ isOpen, onCancel }) => {
           WebkitTransform: "translate(-50%, -50%)",
 
           width: "334px",
-          height: "330px",
+          height: "396px",
           backgroundColor: palette.white,
           borderRadius: "16px",
           boxShadow: "4px 4px 20px rgba(0, 0, 0, 0.3)",
@@ -78,16 +61,25 @@ const Modal = ({ isOpen, onCancel }) => {
           outline: "none",
           //padding: "20px",
 
-          zIndex: 1000
+          zIndex: 1000,
         },
       }}
     >
-      <StyledDiv>
-        <StyledTxt>자리 상세 보기</StyledTxt>
-        <ExitBtn onClick={handleClickExit}>x</ExitBtn>
-      </StyledDiv>
+      <IllustDiv />
+      <StyledTxt style={{ paddingTop: "20px" }}>
+        ‘빌 자리 열람권 (하루)’을
+      </StyledTxt>
+      <StyledTxt>받았습니다!</StyledTxt>
+      <StyledTxt className="remain" style={{ paddingTop: "8px" }}>
+        남은 열람권: 3개
+      </StyledTxt>
+      <Button fullWidth onClick={handleClickExit} style={{ marginTop: "38px" }}>
+        확인
+      </Button>
     </ReactModal>
   );
 };
 
-export default Modal;
+export default ModalReward;
+
+ReactModal.setAppElement("#root");

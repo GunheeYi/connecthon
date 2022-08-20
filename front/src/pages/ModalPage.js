@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import ReactModal from "react-modal";
-import Modal from "../components/Modal";
+import ModalSeat from "../components/ModalSeat";
+import ModalReward from "../components/ModalReward";
 
 const ModalPage = () => {
   const [isOpen, setOpen] = useState(false);
@@ -16,7 +16,8 @@ const ModalPage = () => {
   return (
     <div>
       <button onClick={handleClick}>버튼</button>
-      <Modal isOpen={isOpen} onCancel={handleCancel} />
+      <ModalReward isOpen={isOpen} onCancel={handleCancel} />
+      {/* <ModalSeat isOpen={isOpen} onCancel={handleCancel} seat={2} /> */}
     </div>
   );
 };
