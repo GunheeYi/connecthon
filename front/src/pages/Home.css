@@ -1,0 +1,27 @@
+.rect {
+	position: absolute;
+	top: 668px;
+	left: 0;
+	width: 355px;
+	height: 100px;
+	background: linear-gradient(to top, #ffffff, #ffffff28);
+}
+.mostly-customized-scrollbar {
+	display: flex;
+	display: block;
+	width: 103%;
+	overflow: auto;
+	height: 55%;
+	margin-top: 5px;
+}
+.mostly-customized-scrollbar::-webkit-scrollbar {
+	width: 5px;
+	height: 8px;
+	background-color: #ececec; /* or add it to the track */
+}
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+	background: #b1b1b1;
+}
+#row-data {
+	cursor: pointer;
+}

@@ -1,12 +1,16 @@
 import styled, { css } from "styled-components";
+import { React, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import ModalSeat from "../components/ModalSeat";
+import ModalReward from "../components/ModalReward";
 import Button from "../components/Button";
 import Train from "../components/Train";
 import SeatGroup from "../components/SeatGroup";
 import Autocomplete from "../components/Autocomplete";
 import palette from "../styles/pallete";
-import { React, useEffect, useState } from "react";
 import NativeSelect from "@mui/material/NativeSelect";
 import SeatGroupButton from "../components/SeatGroupButton";
+import "./Sit.css";
 
 const VerticalFlex = styled.div`
   display: flex;
@@ -95,6 +99,14 @@ const willEmpty = [
 ];
 
 function Sit() {
+  const [isOpen, setOpen] = useState(false);
+  const handleSubmit = () => {
+    setOpen(true);
+  };
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
   const [doorFirstNum, setDoorFirstNum] = useState(1);
   const [doorSecondNum, setDoorSecondNum] = useState(1);
   const [seatNum, setSeatNum] = useState(0);
@@ -114,14 +126,6 @@ function Sit() {
 
   const getStation = (txt) => {
     setStation(txt);
-  };
-
-  // 등록하기
-  const handleClick_submit = (e) => {
-    console.log(doorFirstNum);
-    console.log(doorSecondNum);
-    console.log(seatNum);
-    console.log(station);
   };
 
   return (
@@ -223,7 +227,7 @@ function Sit() {
       <BelowFloat>
         <Button
           box_shadow
-          onClick={handleClick_submit}
+          onClick={handleSubmit}
           gray={
             doorFirstNum && doorSecondNum && seatNum && station ? false : true
           }
@@ -231,6 +235,14 @@ function Sit() {
           등록하기
         </Button>
       </BelowFloat>
+
+      <ModalReward
+        isOpen={isOpen}
+        onCancel={() => {
+          window.location.href = "/home";
+        }}
+        seat={2}
+      />
     </div>
   );
 }

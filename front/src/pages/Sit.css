@@ -1,0 +1,7 @@
+#texted {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	justify-content: space-between;
+	margin-right: 125px;
+}

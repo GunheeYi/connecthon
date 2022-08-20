@@ -7,3 +7,10 @@
 	flex-direction: column;
 	text-align: center;
 }
+.rect {
+	display: flex;
+	flex-direction: flex-end;
+	width: 100%;
+	height: 100%;
+	background-color: linear-gradient(#ffffff, #ffffff00);
+}

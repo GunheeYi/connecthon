@@ -16,6 +16,7 @@ const StyledButton = styled.button`
 	cursor: pointer;
 	width: 334px;
 	height: 48px;
+  cursor: pointer;
 
 	background: ${palette.main_purple};
 	&:hover {
