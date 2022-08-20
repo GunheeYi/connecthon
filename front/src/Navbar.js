@@ -10,7 +10,6 @@ function Navbar({ user }) {
 					<img src="/logo.png" alt="logo" />
 				</Link>
 			</div>
-			안녕
 			<div id="navbar-menu-right">
 				<Link to="/mypage" className="navbar-menu-item">
 					<img src="/profile.png" alt="content" />
