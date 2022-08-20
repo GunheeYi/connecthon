@@ -4,6 +4,8 @@ import { auth } from "../services/firebase";
 import palette from "../styles/pallete";
 import Train from "../components/Train";
 import Station from "../components/Station";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 import "./Mypage.css";
 
@@ -26,6 +28,11 @@ const PurpleStyle = styled.span`
 
 const FillSpace = styled.div`
 	flex: auto;
+`;
+const BelowFloat = styled.div`
+	position: absolute;
+	top: 680px;
+	z-index: 2;
 `;
 
 const Mypage = ({ user }) => {
@@ -54,7 +61,14 @@ const Mypage = ({ user }) => {
 				{isSeat ? (
 					<Station> 외선순환 4-2번 칸 5번 좌석 </Station>
 				) : (
-					<div>현재 자리에 앉아 있지 않습니다!</div>
+					<div>
+						현재 자리에 앉아 있지 않습니다!
+						<BelowFloat>
+							<Link to="/sit">
+								<Button box_shadow>자리 등록하기</Button>
+							</Link>
+						</BelowFloat>
+					</div>
 				)}
 			</div>
 
