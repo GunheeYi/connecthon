@@ -46,9 +46,17 @@ function App() {
       <Station name="한양대"/>
       <Station name="서울대입구"/>
 
-      <SeatGroup/>
+      <SeatGroup big={true}/>
+      <SeatGroup big={false}/>
 
       <ModalPage/>
+
+      <EmptyRow door="4-2" remaining={0}/>
+      <EmptyRow door="1-3" remaining={1}/>
+      <EmptyRow door="8-3" remaining={2}/>
+      <EmptyRow door="2-2" remaining={3}/>
+      <EmptyRow door="5-2" remaining={4}/>
+
     </div>
   );
 }

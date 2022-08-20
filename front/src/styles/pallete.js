@@ -5,11 +5,11 @@ const palette = {
   sub_purple: "#AFACFF",
   sub_purple_2: "#E7E6FF",
   sub_mint: "#55DADC",
-  medium_gray_1: "#DCDCDC",
-  medium_gray_2: "#B5B5B5",
-  light_gray: "#F3F3F3",
-  light_gray_2: "#ECECEC",
-  light_gray_3: "#E2E2E2",
+  gray_1: "#B1B1B1",
+  gray_2: "#DADADA",
+  gray_3: "#E2E2E2",
+  gray_4: "#ECECEC",
+  gray_5: "#F3F3F3",
 };
 
 export default palette;
