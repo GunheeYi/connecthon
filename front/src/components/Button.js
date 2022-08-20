@@ -46,6 +46,11 @@ const StyledButton = styled.button`
           background: ${palette.gray_3};
         }
       `}
+  ${(props) =>
+    props.width &&
+    css`
+      width: ${props.width}px !important;
+    `} 
 `;
 
 const Button = ({ to, history, ...rest }) => {

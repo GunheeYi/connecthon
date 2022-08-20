@@ -52,14 +52,14 @@ const StyledColor = styled.div`
   padding-top: 50px;
 `;
 
-const ModalSeat = ({ isOpen, onCancel, seat }) => {
+const ModalSeat = (props) => {
   const handleClickExit = () => {
-    onCancel();
+    props.onCancel();
   };
 
   return (
     <ReactModal
-      isOpen={isOpen}
+      isOpen={props.isOpen}
       style={{
         overlay: {
           position: "fixed",
@@ -100,9 +100,9 @@ const ModalSeat = ({ isOpen, onCancel, seat }) => {
         <ExitBtn onClick={handleClickExit}>x</ExitBtn>
       </StyledDiv>
       <StyledColor>
-        <SeatGroup seat={seat} big={true}/>
+        <SeatGroup seat={props.seat} big={true} />
         <StyledMiddle>
-          <CustomIcon txt="4-2" />
+          <CustomIcon txt={`${props.car}-${props.door}`} />
         </StyledMiddle>
       </StyledColor>
     </ReactModal>

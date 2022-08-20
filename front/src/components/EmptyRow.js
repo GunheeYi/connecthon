@@ -29,14 +29,18 @@ const SubInfoStyle = styled.div`
 `;
 
 const UserStyle = styled.div`
-  position: absolute; left: 36px; top: 25px;
+  position: absolute;
+  left: 36px;
+  top: 25px;
   font-size: 12px;
   font-weight: bold;
   color: ${palette.gray_1};
 `;
 
 const UnboardingStyle = styled.div`
-  position: absolute; left: 36px; top: 45px;
+  position: absolute;
+  left: 36px;
+  top: 45px;
   font-size: 19px;
   font-weight: bold;
   color: ${palette.black};
@@ -47,22 +51,29 @@ const PurpleStyle = styled.span`
 `;
 
 const SeatGroupStyle = styled.div`
-  position: absolute; left: 182px; top: 19px;
+  position: absolute;
+  left: 182px;
+  top: 19px;
 `;
-
 
 const EmptyRow = (props) => {
   return (
     <EmptyRowStyle>
-      <EntranceNum text={props.door} />
+      <EntranceNum text={props.locked ? "" : props.door} />
       <SubInfoStyle>
-        <UserStyle>{props.user}님</UserStyle>
+        <UserStyle>{props.locked ? "▇▇▇" : `${props.user}님`}</UserStyle>
         <UnboardingStyle>
-          <PurpleStyle>{
-            props.remaining > 0 ? props.remaining + "정거장 뒤" : "해당 역"
-          }</PurpleStyle> 하차</UnboardingStyle>
+          <PurpleStyle>
+            {props.locked
+              ? "▇▇▇▇"
+              : props.remaining > 0
+              ? props.remaining + "정거장 뒤"
+              : "해당 역"}
+          </PurpleStyle>{" "}
+          {props.locked ? "▇▇" : "하차"}
+        </UnboardingStyle>
         <SeatGroupStyle>
-          <SeatGroup big={false}/>
+          <SeatGroup big={false} seat={props.locked ? 0 : props.seat} />
         </SeatGroupStyle>
       </SubInfoStyle>
     </EmptyRowStyle>
