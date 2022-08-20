@@ -8,7 +8,7 @@ function SeatGroup(props) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', gap: 24, flexDirection: 'column'}}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 30}}>
-          <div style={{ display: 'flex', justifyContent: 'center'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 6}}>
             {
               Array.from({length: 3}, (_, i) => i + 1).map(i => (
                 <Seat
@@ -20,7 +20,7 @@ function SeatGroup(props) {
               ))
             }
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 6}}>
             {
               Array.from({length: 3}, (_, i) => i + 4).map(i => (
                 <Seat
@@ -34,7 +34,7 @@ function SeatGroup(props) {
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 30}}>
-          <div style={{ display: 'flex', justifyContent: 'center'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 6}}>
             {
               Array.from({length: 3}, (_, i) => i + 7).map(i => (
                 <Seat
@@ -46,7 +46,7 @@ function SeatGroup(props) {
               ))
             }
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 6}}>
             {
               Array.from({length: 3}, (_, i) => i + 10).map(i => (
                 <Seat
