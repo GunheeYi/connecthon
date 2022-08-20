@@ -79,7 +79,7 @@ const Nav = styled.nav`
 
 function Home() {
 	const [isOpen, setOpen] = useState(false);
-	const isReward = true;
+	const isReward = false;
 	const handleClick = () => {
 		setOpen(true);
 	};
