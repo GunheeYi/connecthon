@@ -36,7 +36,7 @@ const BelowFloat = styled.div`
 `;
 
 const Mypage = ({ user }) => {
-	const isSeat = true;
+	const isSeat = false;
 	return (
 		<div className="my-page">
 			<img src={user.photoURL} alt="" />
@@ -60,23 +60,15 @@ const Mypage = ({ user }) => {
 			</div>
 			<div id="my-page-seat">
 				{isSeat ? (
+					<div id="my-content">
+						<Station /> 외선순환 4-2번 칸 5번 좌석
+					</div>
+				) : (
 					<div id="my-content2">
 						현재 자리에 앉아 있지 않습니다!
 						<Link to="/sit">
 							<Button box_shadow>자리 등록하기</Button>
 						</Link>
-						<div id="my-content">
-							<Station /> 외선순환 4-2번 칸 5번 좌석
-						</div>
-					</div>
-				) : (
-					<div>
-						현재 자리에 앉아 있지 않습니다!
-						<BelowFloat>
-							<Link to="/sit">
-								<Button box_shadow>자리 등록하기</Button>
-							</Link>
-						</BelowFloat>
 					</div>
 				)}
 			</div>
