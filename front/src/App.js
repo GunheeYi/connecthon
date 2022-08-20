@@ -8,6 +8,11 @@ import Button from './components/Button';
 import EmptyRow from './components/EmptyRow';
 import EntranceNum from './components/EntranceNum';
 import GlobalStyle from './styles/GlobalStyle'
+import Seat from './components/Seat';
+import SeatGroup from './components/SeatGroup';
+import Train from './components/Train';
+import Autocomplete from './components/Autocomplete';
+import Station from './components/Station';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,6 +32,22 @@ function App() {
 
       <Button>시작하기</Button>
       <EntranceNum text={"4-2"}/>
+      <Seat occupied={true} big={true} num="12"/>
+      <Seat occupied={false} big={true} num=""/>
+      <Seat occupied={true} big={false} num="12"/>
+      <Seat occupied={false} big={false} num="12"/>
+      <Train line="2" name="외선순환" description="2분 40초 뒤 도착"/>
+      <Train line="2" name="외선순환" description=""/>
+
+      <Autocomplete/>
+      <Station name="당산"/>
+      <Station name="홍대"/>
+      <Station name="한양대"/>
+      <Station name="서울대입구"/>
+
+      <SeatGroup/>
+
+
     </div>
 
     
