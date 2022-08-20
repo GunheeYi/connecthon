@@ -4,6 +4,10 @@ import EmptyRow from "../components/EmptyRow";
 import Train from "../components/Train";
 import palette from "../styles/pallete";
 import Clocks from "./Clock";
+import { React, useState } from "react";
+import { Link } from "react-router-dom";
+import ModalSeat from "../components/ModalSeat";
+import ModalReward from "../components/ModalReward";
 import "./Home.css";
 
 const VerticalFlex = styled.div`
@@ -74,12 +78,22 @@ const Nav = styled.nav`
 `;
 
 function Home() {
+	const [isOpen, setOpen] = useState(false);
+	const isReward = true;
+	const handleClick = () => {
+		setOpen(true);
+	};
+
+	const handleCancel = () => {
+		setOpen(false);
+	};
+
 	return (
 		<div>
 			<br />
 			<HorizontalFlex>
 				<Header>
-					내가 <PurpleStyle>탈</PurpleStyle> 열차는?
+					내가 <PurpleStyle>탈</PurpleStyle> 지하철은?
 				</Header>
 				<FillSpace />
 				<Description>
@@ -97,20 +111,42 @@ function Home() {
 				</Header>
 			</HorizontalFlex>
 			<div className="mostly-customized-scrollbar">
-				{willEmpty.map((item) => {
-					return (
-						<EmptyRow
-							door={item.door}
-							user={item.user}
-							remaining={item.remaining}
-						/>
-					);
-				})}
+				{willEmpty.map(
+					(item, i) => {
+						return (
+							<div key={i}>
+								<div id="row-data" onClick={handleClick}>
+									<EmptyRow
+										door={item.door}
+										user={item.user}
+										remaining={item.remaining}
+									/>
+								</div>
+
+								{isReward ? (
+									<ModalReward
+										isOpen={isOpen}
+										onCancel={handleCancel}
+									/>
+								) : (
+									<ModalSeat
+										isOpen={isOpen}
+										onCancel={handleCancel}
+										seat={2}
+									/>
+								)}
+							</div>
+						);
+					},
+					[isOpen]
+				)}
 				<div className="rect" />
 			</div>
 
 			<BelowFloat>
-				<Button box_shadow>자리 등록하기</Button>
+				<Link to="/sit">
+					<Button box_shadow>자리 등록하기</Button>
+				</Link>
 			</BelowFloat>
 		</div>
 	);
