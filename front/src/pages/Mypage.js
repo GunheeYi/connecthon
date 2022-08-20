@@ -1,19 +1,45 @@
 import React from "react";
-
+import styled from "styled-components";
 import { auth } from "../services/firebase";
 import palette from "../styles/pallete";
+import Train from "../components/Train";
+import Station from "../components/Station";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 import "./Mypage.css";
 
+const HorizontalFlex = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+`;
+
+const Header = styled.span`
+	font-size: 18px;
+	font-weight: bold;
+	color: ${palette.black};
+	margin: 7px 0;
+`;
+
+const PurpleStyle = styled.span`
+	color: ${palette.main_purple};
+`;
+
+const FillSpace = styled.div`
+	flex: auto;
+`;
+const BelowFloat = styled.div`
+	position: absolute;
+	top: 680px;
+	z-index: 2;
+`;
+
 const Mypage = ({ user }) => {
-<<<<<<< Updated upstream
-=======
 	const isSeat = true;
->>>>>>> Stashed changes
 	return (
 		<div className="my-page">
 			<img src={user.photoURL} alt="" />
-
 			<div className="my-page-name">
 				<div style={{ color: palette.black }}>
 					{user.displayName}
@@ -24,8 +50,7 @@ const Mypage = ({ user }) => {
 					<span>3</span>
 				</div>
 			</div>
-<<<<<<< Updated upstream
-=======
+
 			<div id="blank">
 				<HorizontalFlex>
 					<Header>
@@ -35,20 +60,27 @@ const Mypage = ({ user }) => {
 			</div>
 			<div id="my-page-seat">
 				{isSeat ? (
-					<div id="my-content">
-						<Station /> 외선순환 4-2번 칸 5번 좌석
-					</div>
-				) : (
 					<div id="my-content2">
 						현재 자리에 앉아 있지 않습니다!
 						<Link to="/sit">
 							<Button box_shadow>자리 등록하기</Button>
 						</Link>
+						<div id="my-content">
+							<Station /> 외선순환 4-2번 칸 5번 좌석
+						</div>
+					</div>
+				) : (
+					<div>
+						현재 자리에 앉아 있지 않습니다!
+						<BelowFloat>
+							<Link to="/sit">
+								<Button box_shadow>자리 등록하기</Button>
+							</Link>
+						</BelowFloat>
 					</div>
 				)}
 			</div>
 
->>>>>>> Stashed changes
 			<button className="button-signout" onClick={() => auth.signOut()}>
 				로그아웃하기
 			</button>
