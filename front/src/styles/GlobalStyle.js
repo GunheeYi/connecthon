@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -16,8 +16,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root{ // window size
-    background-color: black;
+    background-color: beige;
     font-family:'Pretendard Regular';
+    text-align: center;
+	  align-items: center;
     width: 375px;
     height: 768px;
   }
