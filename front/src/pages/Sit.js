@@ -84,6 +84,9 @@ function Sit() {
 	const handleClick = () => {
 		setOpen(true);
 	};
+	const handleCancel = () => {
+		setOpen(false);
+	};
 
 	return (
 		<div>
@@ -123,7 +126,10 @@ function Sit() {
 			<Autocomplete />
 
 			<BelowFloat>
-				<Button box_shadow>등록하기</Button>
+				<div onClick={handleClick}>
+					<Button box_shadow>등록하기</Button>
+				</div>
+				<ModalReward isOpen={isOpen} onCancel={handleCancel} seat={2} />
 			</BelowFloat>
 		</div>
 	);
