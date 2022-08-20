@@ -10,8 +10,9 @@ const EntranceNumStyle = styled.div`
   background-color: ${palette.sub_purple_2};
 
   // font
+  display: flex;
   color: ${palette.main_purple};
-  text-align: center;
+  align-items: center;
   justify-content: center;
   font-family: 'Pretendard Bold';
   font-size: 13px;
