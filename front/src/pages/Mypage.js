@@ -9,9 +9,7 @@ const Mypage = ({ user }) => {
 	return (
 		<div className="my-page">
 			<img src={user.photoURL} alt="" />
-			<button className="button signout" onClick={() => auth.signOut()}>
-				Sign out
-			</button>
+
 			<div className="my-page-name">
 				<div style={{ color: palette.black }}>
 					{user.displayName}
@@ -22,6 +20,9 @@ const Mypage = ({ user }) => {
 					<span>3</span>
 				</div>
 			</div>
+			<button className="button-signout" onClick={() => auth.signOut()}>
+				로그아웃하기
+			</button>
 		</div>
 	);
 };
