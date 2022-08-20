@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import { Home, Login, Error, Navbar, Mypage } from ".";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isPaid, setIsPaid] = useState(false);
+	return (
+		<div className="App">
+			<Navbar
+				isLoggedIn={isLoggedIn}
+				isPaid={isPaid}
+				usrName={"이유림"}
+			/>
+			<div id="page">
+				{isLoggedIn ? (
+					<Routes id="page-login-true">
+						<Route path="/" element={<Home />} />
+						<Route path="/home" element={<Home />} />
+						<Route path="/mypage" element={<Mypage />} />
+						<Route
+							path="*"
+							element={
+								<Error code={404} message="Page not found" />
+							}
+						/>
+					</Routes>
+				) : (
+					<Routes id="page-login-false">
+						<Route path="/login" element={<Login />} />
+						<Route path="/*" element={<Navigate to="/login" />} />
+					</Routes>
+				)}
+			</div>
+		</div>
+	);
 }
 
 export default App;
+
