@@ -19,7 +19,7 @@ function Station(props) {
                 
             </div>
             <span style={{color: palette.black, fontSize: 19, marginLeft: 8, verticalAlign: 'middle', fontWeight: 'bold'}}>{props.name}</span>
-            <span style={{color: palette.medium_gray_2, fontSize: 11, marginLeft: 6, verticalAlign: 'middle', fontWeight: 'bold'}}>{props.description}</span>
+            <span style={{color: palette.gray_1, fontSize: 11, marginLeft: 6, verticalAlign: 'middle', fontWeight: 'bold'}}>{props.description}</span>
         </div>
     )
 }

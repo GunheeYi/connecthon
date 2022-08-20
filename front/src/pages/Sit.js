@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Button from '../components/Button';
-import EmptyRow from '../components/EmptyRow';
 import Train from '../components/Train';
+import SeatGroup from '../components/SeatGroup';
+import Autocomplete from '../components/Autocomplete';
 import palette from "../styles/pallete";
 
 const VerticalFlex = styled.div`
@@ -15,6 +16,7 @@ const HorizontalFlex = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 7px 0;
 `;
 
 const FillSpace = styled.div`
@@ -23,6 +25,13 @@ const FillSpace = styled.div`
 
 const Header = styled.span`
   font-size: 19px;
+  font-weight: bold;
+  color: ${palette.black};
+  margin: 7px 0;
+`;
+
+const Text = styled.span`
+  font-size: 16px;
   font-weight: bold;
   color: ${palette.black};
   margin: 7px 0;
@@ -43,6 +52,18 @@ const BelowFloat = styled.div`
   top: 680px;
 `;
 
+const SeatGroupWrapper = styled.div`
+  margin: 20px 0 30px 0;
+`;
+
+const TextInput = styled.input`
+  width: 56px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid ${palette.gray_3};
+`;
+
+
 const willEmpty = [
 	{ "door": "4-2", "user": "포도잼", "remaining": 0 },
 	{ "door": "1-3", "user": "사과잼", "remaining": 1 },
@@ -54,34 +75,41 @@ const willEmpty = [
 	{ "door": "5-2", "user": "호두잼", "remaining": 3 },
 ]
 
-function Home() {
+function Sit() {
 	return (
 		<div>
 			<br/>
 			<HorizontalFlex>
-				<Header>내가 <PurpleStyle>탈</PurpleStyle> 열차는?</Header>
-				<FillSpace/>
-				<Description>09:41 기준</Description>
+				<Header>현재 탑승 중인 열차</Header>
 			</HorizontalFlex>
-			<Train name="외선순환" description="2분 40초 뒤 도착"/>
+			<Train name="외선순환" description=""/>
 
 			<br/>
 
 			<HorizontalFlex>
-				<Header><PurpleStyle>열차 자리</PurpleStyle>가 비기까지</Header>
+				<Header>앉은 자리</Header>
 			</HorizontalFlex>
-			<div>
-				{
-					willEmpty.map(item => {
-						return <EmptyRow door={item.door} user={item.user} remaining={item.remaining} />
-					})
-				}
-			</div>
+			<Text>
+				<TextInput/>&nbsp;&nbsp;-&nbsp;&nbsp;<TextInput/>&nbsp;번&nbsp;칸&nbsp;&nbsp;<TextInput/>&nbsp;번&nbsp;&nbsp;좌석
+			</Text>
+			<SeatGroupWrapper>
+				<SeatGroup big={true}/>
+			</SeatGroupWrapper>
+			
+			
+
+			<HorizontalFlex>
+				<Header>내릴 역</Header>
+			</HorizontalFlex>
+			<Autocomplete/>
+
 			<BelowFloat>
-				<Button box_shadow>자리 등록하기</Button>
+				<Button box_shadow>등록하기</Button>
 			</BelowFloat>
+			
+			
 		</div>
 	);
 }
 
-export default Home;
+export default Sit;

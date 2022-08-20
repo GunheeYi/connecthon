@@ -5,6 +5,7 @@ import { Route, Nav, useParams, Router, Switch } from "react-router-dom";
 
 import firebase from "./services/firebase";
 import Home from "./pages/Home";
+import Sit from "./pages/Sit";
 import Login from "./pages/Login";
 import Mypage from "./pages/Mypage";
 import Navbar from "./Navbar";
@@ -22,7 +23,7 @@ function App() {
 	console.log(user);
 
 	return (
-		<div className="app">
+		<div className="app" id="app">
 			{user ? (
 				<div id="navbar">
 					<Navbar user={user} />
@@ -33,6 +34,7 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/home" component={Home} />
+          <Route exact path="/sit" component={Sit} />
 					<Route
 						exact
 						path="/mypage"

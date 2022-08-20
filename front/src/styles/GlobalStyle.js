@@ -13,15 +13,17 @@ const GlobalStyle = createGlobalStyle`
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   min-height: 100%;
+  background-color: #A3CCA3;
   }
 
-  #root{ // window size
-    background-color: beige;
+  #root, #app{ // window size
+    background-color: white;
     font-family:'Pretendard Regular';
     text-align: center;
 	  align-items: center;
     width: 375px;
     height: 768px;
+    overflow: hidden;
   }
 
   html{

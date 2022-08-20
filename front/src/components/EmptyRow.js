@@ -56,7 +56,7 @@ const EmptyRow = (props) => {
     <EmptyRowStyle>
       <EntranceNum text={props.door} />
       <SubInfoStyle>
-        <UserStyle>딸기잼님</UserStyle>
+        <UserStyle>{props.user}님</UserStyle>
         <UnboardingStyle>
           <PurpleStyle>{
             props.remaining > 0 ? props.remaining + "정거장 뒤" : "해당 역"

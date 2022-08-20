@@ -11,7 +11,8 @@ function Train(props) {
             width: "334px",
             position: "relative",
             borderRadius: "16px",
-            backgroundColor: palette.light_gray,
+            backgroundColor: palette.gray_5,
+            margin: "5px 0",
         }}>
             <div style={{
                 marginLeft: 16,
