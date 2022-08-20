@@ -12,7 +12,7 @@ const StyledButton = styled.button`
 	font-family: "Pretendard Bold";
 	color: white;
 
-	padding: 0.25rem;
+	padding: 0.25rem;s
 	cursor: pointer;
 	width: 334px;
 	height: 48px;
