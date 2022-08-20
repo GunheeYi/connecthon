@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root{ // window size
-    background-color: black;
+    background-color: #A3CCA3;
     font-family:'Pretendard Regular';
     width: 375px;
     height: 768px;

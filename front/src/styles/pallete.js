@@ -7,7 +7,7 @@ const palette = {
   sub_mint: "#55DADC",
   medium_gray_1: "#DCDCDC",
   medium_gray_2: "#B5B5B5",
-  light_gary: "#F3F3F3",
+  light_gray: "#F3F3F3",
   light_gray_2: "#ECECEC",
   light_gray_3: "#E2E2E2",
 };

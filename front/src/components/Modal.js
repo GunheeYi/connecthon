@@ -59,6 +59,7 @@ const Modal = ({ isOpen, onCancel }) => {
           height: "768px",
           alignItems: "center",
           justifyContent: "center",
+          zIndex: 999
         },
         content: {
           position: "absolute",
@@ -76,6 +77,8 @@ const Modal = ({ isOpen, onCancel }) => {
           WebkitOverflowScrolling: "touch",
           outline: "none",
           //padding: "20px",
+
+          zIndex: 1000
         },
       }}
     >
