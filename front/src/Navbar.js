@@ -2,7 +2,7 @@ import "./Navbar.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar({ user, logout }) {
+function Navbar({ userDt, logout }) {
 	return (
 		<div className="Navbar">
 			<div id="Navbar-title">

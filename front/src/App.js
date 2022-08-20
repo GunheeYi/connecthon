@@ -1,20 +1,25 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
-import { Home, Login, Error, Navbar, Mypage } from ".";
+import { Home, Login, Register, Error, Navbar, Mypage } from ".";
 
 function App() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [isPaid, setIsPaid] = useState(false);
+	const [userDt, setUserDt] = useState({
+		logined: false,
+		name: "",
+	});
+	const logout = () => {
+		setUserDt({
+			...userDt,
+			logined: false,
+			name: "",
+		});
+	};
 	return (
 		<div className="App">
-			<Navbar
-				isLoggedIn={isLoggedIn}
-				isPaid={isPaid}
-				usrName={"이유림"}
-			/>
+			<Navbar userDt={userDt} logout={logout} />
 			<div id="page">
-				{isLoggedIn ? (
+				{userDt.logined ? (
 					<Routes id="page-login-true">
 						<Route path="/" element={<Home />} />
 						<Route path="/home" element={<Home />} />
@@ -28,7 +33,13 @@ function App() {
 					</Routes>
 				) : (
 					<Routes id="page-login-false">
-						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+						<Route
+							path="/login"
+							element={
+								<Login userDt={userDt} setUserDt={setUserDt} />
+							}
+						/>
 						<Route path="/*" element={<Navigate to="/login" />} />
 					</Routes>
 				)}

@@ -9,6 +9,7 @@ export { default as Error } from "./Error";
 export { default as Login } from "./Login";
 export { default as Navbar } from "./Navbar";
 export { default as Mypage } from "./Mypage";
+export { default as Register } from "./Register";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
