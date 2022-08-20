@@ -13,51 +13,79 @@ function SeatGroup(props) {
         <div style={{ display: 'flex', justifyContent: 'center', gap: side2side }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: seat2seat}}>
             {
-              Array.from({length: 3}, (_, i) => i + 1).map(i => (
-                <Seat
+              Array.from({length: 3}, (_, i) => i + 1).map((i, key)=> (
+                props.seat === i ? (<Seat
+                  key={key}
+                  occupied={true} 
+                  big={props.big} 
+                  inverted={false} 
+                  num={i}
+                />) : (<Seat
+                  key={key}
                   occupied={false} 
                   big={props.big} 
                   inverted={false} 
                   num={i}
-                />
+                />)
               ))
             }
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', gap: seat2seat}}>
-            {
-              Array.from({length: 3}, (_, i) => i + 4).map(i => (
-                <Seat
+          {
+              Array.from({length: 3}, (_, i) => i + 4).map((i, key)=> (
+                props.seat === i ? (<Seat
+                  key={key}
+                  occupied={true} 
+                  big={props.big} 
+                  inverted={false} 
+                  num={i}
+                />) : (<Seat
+                  key={key}
                   occupied={false} 
                   big={props.big} 
                   inverted={false} 
                   num={i}
-                />
+                />)
               ))
             }
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: side2side }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: seat2seat}}>
-            {
-              Array.from({length: 3}, (_, i) => i + 7).map(i => (
-                <Seat
+          {
+              Array.from({length: 3}, (_, i) => i + 7).map((i, key)=> (
+                props.seat === i ? (<Seat
+                  key={key}
+                  occupied={true} 
+                  big={props.big} 
+                  inverted={false} 
+                  num={i}
+                />) : (<Seat
+                  key={key}
                   occupied={false} 
                   big={props.big} 
-                  inverted={true} 
+                  inverted={false} 
                   num={i}
-                />
+                />)
               ))
             }
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', gap: seat2seat}}>
-            {
-              Array.from({length: 3}, (_, i) => i + 10).map(i => (
-                <Seat
+          {
+              Array.from({length: 3}, (_, i) => i + 10).map((i, key)=> (
+                props.seat === i ? (<Seat
+                  key={key}
+                  occupied={true} 
+                  big={props.big} 
+                  inverted={false} 
+                  num={i}
+                />) : (<Seat
+                  key={key}
                   occupied={false} 
                   big={props.big} 
-                  inverted={true} 
+                  inverted={false} 
                   num={i}
-                />
+                />)
               ))
             }
           </div>

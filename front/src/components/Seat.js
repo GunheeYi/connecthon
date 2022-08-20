@@ -1,7 +1,9 @@
-import React from 'react';
-import palette from '../styles/pallete';
+import React from "react";
+import palette from "../styles/pallete";
 
-{/* <Seat occupied="true" big="true" showNum="true" num="12"/> */}
+{
+  /* <Seat occupied="true" big="true" showNum="true" num="12"/> */
+}
 
 function Seat(props) {
     if (props.big) {
@@ -19,7 +21,7 @@ function Seat(props) {
                     backgroundColor: (props.occupied ? palette.main_purple : palette.gray_4)
                 }}></div>
                 <div style={{width: '100%', textAlign: 'center', position: 'absolute', top: props.inverted ? 6 : 18}}>
-                    <div style={{display: 'inline-block', color: props.occupied ? palette.white : palette.gray_1}}>{props.num}</div>
+                    <div style={{display: 'inline-block', fontFamily:"Pretendard SemiBold", color: props.occupied ? palette.white : palette.gray_1}}>{props.num}</div>
                 </div>
             </div>
         )
