@@ -129,7 +129,13 @@ function Sit() {
 				<div onClick={handleClick}>
 					<Button box_shadow>등록하기</Button>
 				</div>
-				<ModalReward isOpen={isOpen} onCancel={handleCancel} seat={2} />
+				<ModalReward
+					isOpen={isOpen}
+					onCancel={() => {
+						window.location.href = "/home";
+					}}
+					seat={2}
+				/>
 			</BelowFloat>
 		</div>
 	);
