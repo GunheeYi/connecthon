@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import palette from '../styles/pallete';
+import React from "react";
+import styled from "styled-components";
+import palette from "../styles/pallete";
 
 const EntranceNumStyle = styled.div`
   border-radius: 55px;
@@ -14,8 +14,14 @@ const EntranceNumStyle = styled.div`
   color: ${palette.main_purple};
   align-items: center;
   justify-content: center;
-  font-family: 'Pretendard Bold';
+  font-family: "Pretendard Bold";
   font-size: 13px;
+
+  display: flex;
+  margin-right: auto;
+
+  position: absolute;
+  z-index: 1;
 `;
 
 const EntranceNum = ({ text }) => {
