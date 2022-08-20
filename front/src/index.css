@@ -1,14 +1,49 @@
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-		monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
+/* Pretendard Regular */
+@font-face {
+  font-family: 'Pretendard Regular';
+  src: url('./fonts/web/woff2/Pretendard-Regular.woff2') format('woff2'),
+    url('./fonts/web/woff/Pretendard-Regular.woff') format('woff'),
+    url('./fonts/public/Pretendard-Regular.otf') format('opentype'),
+    url('./fonts/ios/Pretendard-Regular.ttf') format('truetype');
+}
+
+/* Pretendard Medium */
+@font-face {
+  font-family: 'Pretendard Medium';
+  src: url('./fonts/web/woff2/Pretendard-Medium.woff2') format('woff2'),
+    url('./fonts/web/woff/Pretendard-Medium.woff') format('woff'),
+    url('./fonts/public/Pretendard-Medium.otf') format('opentype'),
+    url('./fonts/ios/Pretendard-Medium.ttf') format('truetype');
+}
+
+/* Pretendard Bold */
+@font-face {
+  font-family: 'Pretendard Bold';
+  src: url('./fonts/web/woff2/Pretendard-Bold.woff2') format('woff2'),
+    url('./fonts/web/woff/Pretendard-Bold.woff') format('woff'),
+    url('./fonts/public/Pretendard-Bold.otf') format('opentype'),
+    url('./fonts/ios/Pretendard-Bold.ttf') format('truetype');
+}
+
+/* Pretendard ExtraBold */
+@font-face {
+  font-family: 'Pretendard ExtraBold';
+  src: url('./fonts/web/woff2/Pretendard-ExtraBold.woff2') format('woff2'),
+    url('./fonts/web/woff/Pretendard-ExtraBold.woff') format('woff'),
+    url('./fonts/public/Pretendard-ExtraBold.otf') format('opentype'),
+    url('./fonts/ios/Pretendard-ExtraBold.ttf') format('truetype');
+}
