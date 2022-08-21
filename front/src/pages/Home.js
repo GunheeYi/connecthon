@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import ModalSeat from "../components/ModalSeat";
 import ModalReward from "../components/ModalReward";
 import "./Home.css";
+import client from "../axiosConfing";
+import { useEffect } from "react";
 
 const VerticalFlex = styled.div`
   display: flex;
@@ -80,7 +82,8 @@ const Nav = styled.nav`
 `;
 
 function Home() {
-  let hasTicket = true;
+  //let hasTicket = true;
+  const [hasTicket, setHasTicket] = useState(false);
 
   const [isOpen, setOpen] = useState(false);
   const [car, setCar] = useState();
@@ -100,8 +103,36 @@ function Home() {
   };
 
   const unlock = () => {
-    setLocked(false);
+    const user_Id = localStorage.getItem("user_Id");
+    const url = "ticket/discount?userId=" + user_Id;
+
+    client
+      .get(url)
+      .then(function (res) {
+        console.log(res);
+        setLocked(false);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   };
+
+  useEffect(() => {
+    const user_Id = localStorage.getItem("user_Id");
+    const url = "user/ticket?userId=" + user_Id;
+
+    client
+      .get(url)
+      .then(function (res) {
+        // console.log(res.data.result[0].tickets);
+        if (res.data.result[0].tickets > 0) {
+          setHasTicket(true);
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
