@@ -49,9 +49,9 @@ const StyledMiddle = styled.div`
 
 const Mypage = ({ user }) => {
 	const isSeat = true;
-	const seat = "5";
-	const car = "4";
-	const door = "2";
+	const seat = 5;
+	const car = 4;
+	const door = 2;
 
 	return (
 		<div className="my-page">

@@ -35,6 +35,7 @@ const trainSecondProps = [1, 2, 3, 4];
 
 const Header = styled.span`
 	font-size: 19px;
+	font-family: "Pretendard SemiBold";
 	// font-weight: bold;
 	color: ${palette.black};
 	margin: 7px 0;
@@ -218,12 +219,22 @@ function Sit() {
 				/>
 				{/* <SeatGroup big={true} num={seatNum} /> */}
 			</SeatGroupWrapper>
-
+			<div
+				id="train-point"
+				style={{
+					margin: 3,
+					fontFamily: "Pretendard Medium",
+					fontSize: 12,
+					color: palette.sub_purple,
+				}}
+			>
+				<img src="./pointer.png" alt="pointer" style={{ margin: 3 }} />
+				열차 진행 방향
+			</div>
 			<HorizontalFlex>
 				<Header>내릴 역</Header>
 			</HorizontalFlex>
 			<Autocomplete getStation={getStation} />
-
 			<BelowFloat>
 				<Button
 					box_shadow
@@ -237,7 +248,6 @@ function Sit() {
 					등록하기
 				</Button>
 			</BelowFloat>
-
 			<ModalReward
 				isOpen={isOpen}
 				onCancel={() => {
