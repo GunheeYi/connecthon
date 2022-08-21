@@ -16,7 +16,6 @@ const StyledButton = styled.button`
 	cursor: pointer;
 	width: 334px;
 	height: 48px;
-  cursor: pointer;
 
 	background: ${palette.main_purple};
 	&:hover {
@@ -25,20 +24,27 @@ const StyledButton = styled.button`
 
 	// full width
 	${(props) =>
-    props.fullWidth &&
-    css`
-      width: 100%;
-    `}
+		props.fullWidth &&
+		css`
+			width: 100%;
+		`}
+
+    ${(props) =>
+		props.littleWidth &&
+		css`
+			width: 280px;
+		`}
 
 	// box shadow
   ${(props) =>
-    props.box_shadow &&
-    css`
-      box-shadow: 4px 4px 20px rgba(94, 89, 254, 0.3);
-    `} 
+		props.box_shadow &&
+		css`
+			box-shadow: 4px 4px 20px rgba(94, 89, 254, 0.3);
+		`} 
     
     // background: gray
     ${(props) =>
+<<<<<<< Updated upstream
       props.gray &&
       css`
         background: ${palette.gray_3};
@@ -46,18 +52,32 @@ const StyledButton = styled.button`
           background: ${palette.gray_3};
         }
       `}
+=======
+		props.gray &&
+		css`
+			background: ${palette.gray_3};
+			&:hover {
+				background: ${palette.gray_3};
+			}
+		`}
+  ${(props) =>
+		props.width &&
+		css`
+			width: ${props.width}px !important;
+		`} 
+>>>>>>> Stashed changes
 `;
 
 const Button = ({ to, history, ...rest }) => {
-  const handleClick = (e) => {
-    if (to) {
-    }
+	const handleClick = (e) => {
+		if (to) {
+		}
 
-    if (rest.onClick) {
-      rest.onClick(e);
-    }
-  };
-  return <StyledButton {...rest} onClick={handleClick} />;
+		if (rest.onClick) {
+			rest.onClick(e);
+		}
+	};
+	return <StyledButton {...rest} onClick={handleClick} />;
 };
 
 export default Button;

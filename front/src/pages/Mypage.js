@@ -36,10 +36,10 @@ const BelowFloat = styled.div`
 `;
 
 const Mypage = ({ user }) => {
-	const isSeat = false;
+	const isSeat = true;
 	return (
 		<div className="my-page">
-			<img src={user.photoURL} alt="" />
+			<img id="user-info" src={user.photoURL} alt="" />
 			<div className="my-page-name">
 				<div style={{ color: palette.black }}>
 					{user.displayName}
@@ -63,11 +63,19 @@ const Mypage = ({ user }) => {
 				) : (
 					<div>
 						현재 자리에 앉아 있지 않습니다!
+<<<<<<< Updated upstream
 						<BelowFloat>
 							<Link to="/sit">
 								<Button box_shadow>자리 등록하기</Button>
 							</Link>
 						</BelowFloat>
+=======
+						<Link to="/sit">
+							<Button littleWidth box_shadow>
+								자리 등록하기
+							</Button>
+						</Link>
+>>>>>>> Stashed changes
 					</div>
 				)}
 			</div>
