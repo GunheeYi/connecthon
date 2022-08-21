@@ -52,63 +52,6 @@ const StyledColor = styled.div`
 	padding-top: 50px;
 `;
 
-<<<<<<< Updated upstream
-const ModalSeat = ({ isOpen, onCancel, seat }) => {
-  const handleClickExit = () => {
-    onCancel();
-  };
-
-  return (
-    <ReactModal
-      isOpen={isOpen}
-      style={{
-        overlay: {
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: "rgba(0, 0, 0, 0.75)",
-          width: "375px",
-          height: "768px",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 999,
-        },
-        content: {
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          WebkitTransform: "translate(-50%, -50%)",
-
-          width: "334px",
-          height: "330px",
-          backgroundColor: palette.white,
-          borderRadius: "16px",
-          boxShadow: "4px 4px 20px rgba(0, 0, 0, 0.3)",
-
-          overflow: "auto",
-          WebkitOverflowScrolling: "touch",
-          outline: "none",
-          //padding: "20px",
-
-          zIndex: 1000,
-        },
-      }}
-    >
-      <StyledDiv>
-        <StyledTxt>자리 상세 보기</StyledTxt>
-        <ExitBtn onClick={handleClickExit}>x</ExitBtn>
-      </StyledDiv>
-      <StyledColor>
-        <SeatGroup seat={seat} big={true}/>
-        <StyledMiddle>
-          <CustomIcon txt="4-2" />
-        </StyledMiddle>
-      </StyledColor>
-    </ReactModal>
-  );
-=======
 const ModalSeat = (props) => {
 	const handleClickExit = () => {
 		props.onCancel();
@@ -164,7 +107,6 @@ const ModalSeat = (props) => {
 			</StyledColor>
 		</ReactModal>
 	);
->>>>>>> Stashed changes
 };
 
 export default ModalSeat;

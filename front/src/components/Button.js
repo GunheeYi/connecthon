@@ -44,15 +44,6 @@ const StyledButton = styled.button`
     
     // background: gray
     ${(props) =>
-<<<<<<< Updated upstream
-      props.gray &&
-      css`
-        background: ${palette.gray_3};
-        &:hover {
-          background: ${palette.gray_3};
-        }
-      `}
-=======
 		props.gray &&
 		css`
 			background: ${palette.gray_3};
@@ -60,12 +51,13 @@ const StyledButton = styled.button`
 				background: ${palette.gray_3};
 			}
 		`}
+
   ${(props) =>
 		props.width &&
 		css`
 			width: ${props.width}px !important;
 		`} 
->>>>>>> Stashed changes
+
 `;
 
 const Button = ({ to, history, ...rest }) => {

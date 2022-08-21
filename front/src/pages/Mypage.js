@@ -59,23 +59,17 @@ const Mypage = ({ user }) => {
 			</div>
 			<div id="my-page-seat">
 				{isSeat ? (
-					<Station> 외선순환 4-2번 칸 5번 좌석 </Station>
+					<div>
+						<Station /> 외선순환 4-2번 칸 5번 좌석
+					</div>
 				) : (
 					<div>
 						현재 자리에 앉아 있지 않습니다!
-<<<<<<< Updated upstream
-						<BelowFloat>
-							<Link to="/sit">
-								<Button box_shadow>자리 등록하기</Button>
-							</Link>
-						</BelowFloat>
-=======
 						<Link to="/sit">
 							<Button littleWidth box_shadow>
 								자리 등록하기
 							</Button>
 						</Link>
->>>>>>> Stashed changes
 					</div>
 				)}
 			</div>
