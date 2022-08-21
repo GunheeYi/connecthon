@@ -129,6 +129,15 @@ function Home() {
   };
 
   useEffect(() => {
+    if (localStorage.getItem("isTicket")) {
+      console.log("test");
+      setHasTicket(true);
+      setLocked(false);
+      localStorage.removeItem("isTicket");
+    }
+  }, []);
+
+  useEffect(() => {
     const user_Id = localStorage.getItem("user_Id");
     const url = "user/ticket?userId=" + user_Id;
 
