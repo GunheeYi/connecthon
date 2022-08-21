@@ -34,7 +34,7 @@
 	display: flex;
 	background-color: #00000000;
 	flex-direction: row;
-	margin-top: 180px;
+	margin-top: 120px;
 	text-align: center;
 	color: #b1b1b1;
 	border: 0;
@@ -51,7 +51,7 @@
 	font-size: 14px;
 	font-family: "Pretendard Bold";
 	width: 334px;
-	height: 30%;
+	height: 43%;
 	border: 1px solid #e2e2e2;
 	border-radius: 12px;
 }
@@ -59,7 +59,7 @@
 	display: flex;
 	width: 334px;
 	flex-direction: row;
-	margin-top: 70px;
+	margin-top: 50px;
 }
 #my-content {
 	display: flex;
