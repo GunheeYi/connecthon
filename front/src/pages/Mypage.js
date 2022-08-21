@@ -100,7 +100,6 @@ const Mypage = ({ user }) => {
 					</div>
 				)}
 			</div>
-
 			<button className="button-signout" onClick={() => auth.signOut()}>
 				로그아웃하기
 			</button>

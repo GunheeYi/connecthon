@@ -12,6 +12,8 @@ import NativeSelect from "@mui/material/NativeSelect";
 import SeatGroupButton from "../components/SeatGroupButton";
 import "./Sit.css";
 import { stationNames, stationName2Id } from "../services/metro";
+import client from "../axiosConfing";
+import Home from "./Home";
 
 const VerticalFlex = styled.div`
 	display: flex;
@@ -108,6 +110,20 @@ function Sit() {
 	const [station, setStation] = useState();
 
 	const handleSubmit = () => {
+		console.log(doorFirstNum, doorSecondNum, seatNum, station);
+
+		const user_Id = localStorage.getItem("user_Id");
+		const url = "ticket/add?userId=" + user_Id;
+
+		// client
+		//   .get(url)
+		//   .then(function (res) {
+		//     console.log(res);
+		//   })
+		//   .catch(function (err) {
+		//     console.log(err);
+		//   });
+
 		setOpen(true);
 	};
 	const handleCancel = () => {
@@ -220,28 +236,21 @@ function Sit() {
 				/>
 				{/* <SeatGroup big={true} num={seatNum} /> */}
 			</SeatGroupWrapper>
-			<div
-				id="train-point"
-				style={{
-					margin: 3,
-					fontFamily: "Pretendard Medium",
-					fontSize: 12,
-					color: palette.sub_purple,
-				}}
-			>
-				<img src="./pointer.png" alt="pointer" style={{ margin: 3 }} />
-				열차 진행 방향
-			</div>
+
 			<HorizontalFlex>
 				<Header>내릴 역</Header>
 			</HorizontalFlex>
 			<Autocomplete getStation={getStation} />
+
 			<BelowFloat>
 				<Button
 					box_shadow
 					onClick={handleSubmit}
 					gray={
-						doorFirstNum && doorSecondNum && seatNum && station
+						doorFirstNum &&
+						doorSecondNum &&
+						seatNum &&
+						stationName2Id(station)
 							? false
 							: true
 					}
@@ -249,10 +258,12 @@ function Sit() {
 					등록하기
 				</Button>
 			</BelowFloat>
+
 			<ModalReward
 				isOpen={isOpen}
 				onCancel={() => {
-					window.location.href = "/home";
+					localStorage.setItem("isTicket", true);
+					window.location.href = "/mypage";
 				}}
 				seat={2}
 			/>
