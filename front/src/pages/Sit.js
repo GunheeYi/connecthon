@@ -11,6 +11,7 @@ import palette from "../styles/pallete";
 import NativeSelect from "@mui/material/NativeSelect";
 import SeatGroupButton from "../components/SeatGroupButton";
 import "./Sit.css";
+import { stationNames, stationName2Id } from "../services/metro";
 
 const VerticalFlex = styled.div`
 	display: flex;
@@ -100,17 +101,17 @@ const willEmpty = [
 
 function Sit() {
 	const [isOpen, setOpen] = useState(false);
+	const [doorFirstNum, setDoorFirstNum] = useState(1);
+	const [doorSecondNum, setDoorSecondNum] = useState(1);
+	const [seatNum, setSeatNum] = useState(0);
+	const [station, setStation] = useState();
+
 	const handleSubmit = () => {
 		setOpen(true);
 	};
 	const handleCancel = () => {
 		setOpen(false);
 	};
-
-	const [doorFirstNum, setDoorFirstNum] = useState(1);
-	const [doorSecondNum, setDoorSecondNum] = useState(1);
-	const [seatNum, setSeatNum] = useState(0);
-	const [station, setStation] = useState();
 
 	const handleChange_firstNum = (e) => {
 		const { value } = e.target;
@@ -229,7 +230,7 @@ function Sit() {
 					box_shadow
 					onClick={handleSubmit}
 					gray={
-						doorFirstNum && doorSecondNum && seatNum && station
+						doorFirstNum && doorSecondNum && seatNum && stationName2Id(station)
 							? false
 							: true
 					}

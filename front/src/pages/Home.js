@@ -4,11 +4,12 @@ import EmptyRow from "../components/EmptyRow";
 import Train from "../components/Train";
 import palette from "../styles/pallete";
 import Clocks from "./Clock";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ModalSeat from "../components/ModalSeat";
 import ModalReward from "../components/ModalReward";
 import "./Home.css";
+import { now, getRemaining } from "../services/metro";
 
 const VerticalFlex = styled.div`
   display: flex;
@@ -82,11 +83,23 @@ const Nav = styled.nav`
 function Home() {
   let hasTicket = true;
 
+  const here = 230;
+
   const [isOpen, setOpen] = useState(false);
   const [car, setCar] = useState();
   const [door, setDoor] = useState();
   const [seat, setSeat] = useState();
   const [locked, setLocked] = useState(true);
+  const [remaining, setRemaining] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const r = getRemaining(here);
+      setRemaining(r);
+      console.log(r);
+    }, 997);
+  }, []);
+
   const isReward = false;
   const handleClick = (c, d, s) => {
     setCar(c);
@@ -114,9 +127,9 @@ function Home() {
         <Description>
           <Clocks />
         </Description>
-        <Description> 기준</Description>
+        <Description>&nbsp;기준</Description>
       </HorizontalFlex>
-      <Train name="외선순환" description="2분 40초 뒤 도착" />
+      <Train name="외선순환" description={(remaining >= 60 ? `${parseInt(remaining / 60)}분 ` : "") + `${remaining % 60}초 뒤 도착`} />
 
       <br />
 
@@ -164,7 +177,7 @@ function Home() {
 
       <BelowFloat>
         <HorizontalFlex>
-          {hasTicket ? (
+          {(hasTicket && locked) ? (
             <>
               <Button box_shadow width={130} onClick={unlock}>
                 열람권 사용
@@ -175,7 +188,7 @@ function Home() {
             <></>
           )}
           <Link to="/sit">
-            <Button box_shadow width={hasTicket ? 190 : 334}>
+            <Button box_shadow width={(hasTicket && locked) ? 190 : 334}>
               자리 등록하기
             </Button>
           </Link>

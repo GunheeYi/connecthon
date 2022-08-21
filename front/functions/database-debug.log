@@ -1,0 +1,8 @@
+01:36:38.377 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+01:36:38.567 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+01:36:43.851 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - strawberry-jam-e7980-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 128ms, init: 0ms
+01:36:43.923 [NamespaceSystem-blocking-namespace-operation-dispatcher-7:strawberry-jam-e7980-default-rtdb$-1743718785:] INFO com.firebase.core.namespace.StateManager - Namespace strawberry-jam-e7980-default-rtdb status Active to Active
+01:39:15.440 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+01:39:15.446 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: strawberry-jam-e7980-default-rtdb
+01:39:15.455 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for strawberry-jam-e7980-default-rtdb
+01:39:15.460 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
