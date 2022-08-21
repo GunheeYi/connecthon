@@ -6,6 +6,8 @@ import Train from "../components/Train";
 import Station from "../components/Station";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import SeatGroup from "../components/SeatGroup";
+import CustomIcon from "../components/CustomIcon";
 
 import "./Mypage.css";
 
@@ -34,12 +36,26 @@ const BelowFloat = styled.div`
 	top: 680px;
 	z-index: 2;
 `;
+const StyledColor = styled.div`
+	padding-top: 50px;
+`;
+
+const StyledMiddle = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 30px;
+`;
 
 const Mypage = ({ user }) => {
-	const isSeat = false;
+	const isSeat = true;
+	const seat = 5;
+	const car = 4;
+	const door = 2;
+
 	return (
 		<div className="my-page">
-			<img src={user.photoURL} alt="" />
+			<img id="user-info" src={user.photoURL} alt="" />
 			<div className="my-page-name">
 				<div style={{ color: palette.black }}>
 					{user.displayName}
@@ -60,8 +76,20 @@ const Mypage = ({ user }) => {
 			</div>
 			<div id="my-page-seat">
 				{isSeat ? (
-					<div id="my-content">
-						<Station /> 외선순환 4-2번 칸 5번 좌석
+					<div>
+						<br />
+						<br />
+						<HorizontalFlex>
+							<FillSpace />
+							<Station /> 외선순환 4-2번 칸 5번 좌석
+							<FillSpace />
+						</HorizontalFlex>
+						<StyledColor>
+							<SeatGroup seat={seat} big={true} />
+							<StyledMiddle>
+								<CustomIcon txt={`${car}-${door}`} />
+							</StyledMiddle>
+						</StyledColor>
 					</div>
 				) : (
 					<div id="my-content2">
