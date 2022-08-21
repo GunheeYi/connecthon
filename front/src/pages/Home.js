@@ -10,6 +10,7 @@ import ModalSeat from "../components/ModalSeat";
 import ModalReward from "../components/ModalReward";
 import "./Home.css";
 import { now, getRemaining } from "../services/metro";
+import client from "../axiosConfing";
 
 const VerticalFlex = styled.div`
   display: flex;
@@ -81,7 +82,8 @@ const Nav = styled.nav`
 `;
 
 function Home() {
-  let hasTicket = true;
+  //let hasTicket = true;
+  const [hasTicket, setHasTicket] = useState(false);
 
   const here = 230;
 
@@ -96,7 +98,6 @@ function Home() {
     const interval = setInterval(() => {
       const r = getRemaining(here);
       setRemaining(r);
-      console.log(r);
     }, 997);
   }, []);
 
@@ -113,8 +114,35 @@ function Home() {
   };
 
   const unlock = () => {
-    setLocked(false);
+    const user_Id = localStorage.getItem("user_Id");
+    const url = "ticket/discount?userId=" + user_Id;
+
+    client
+      .get(url)
+      .then(function (res) {
+        console.log(res);
+        setLocked(false);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   };
+
+  useEffect(() => {
+    const user_Id = localStorage.getItem("user_Id");
+    const url = "user/ticket?userId=" + user_Id;
+
+    client
+      .get(url)
+      .then(function (res) {
+        if (res.data.result[0].tickets > 0) {
+          setHasTicket(true);
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
@@ -129,7 +157,13 @@ function Home() {
         </Description>
         <Description>&nbsp;기준</Description>
       </HorizontalFlex>
-      <Train name="외선순환" description={(remaining >= 60 ? `${parseInt(remaining / 60)}분 ` : "") + `${remaining % 60}초 뒤 도착`} />
+      <Train
+        name="외선순환"
+        description={
+          (remaining >= 60 ? `${parseInt(remaining / 60)}분 ` : "") +
+          `${remaining % 60}초 뒤 도착`
+        }
+      />
 
       <br />
 
@@ -177,7 +211,7 @@ function Home() {
 
       <BelowFloat>
         <HorizontalFlex>
-          {(hasTicket && locked) ? (
+          {hasTicket && locked ? (
             <>
               <Button box_shadow width={130} onClick={unlock}>
                 열람권 사용
@@ -188,7 +222,7 @@ function Home() {
             <></>
           )}
           <Link to="/sit">
-            <Button box_shadow width={(hasTicket && locked) ? 190 : 334}>
+            <Button box_shadow width={hasTicket && locked ? 190 : 334}>
               자리 등록하기
             </Button>
           </Link>
