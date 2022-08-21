@@ -60,7 +60,12 @@ const Mypage = ({ user }) => {
 			<div id="my-page-seat">
 				{isSeat ? (
 					<div>
-						<Station /> 외선순환 4-2번 칸 5번 좌석
+						<br />
+						<HorizontalFlex>
+							<FillSpace />
+							<Station /> 외선순환 4-2번 칸 5번 좌석
+							<FillSpace />
+						</HorizontalFlex>
 					</div>
 				) : (
 					<div>
